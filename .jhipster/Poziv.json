@@ -1,0 +1,28 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "gost",
+            "otherEntityName": "gost",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "rezervacija",
+            "otherEntityName": "rezervacija",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "potvrdjeno",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20170910211031",
+    "entityTableName": "poziv",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

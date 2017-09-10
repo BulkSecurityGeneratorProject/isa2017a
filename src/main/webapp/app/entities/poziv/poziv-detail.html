@@ -1,0 +1,31 @@
+
+<div>
+    <h2><span>Poziv</span> {{vm.poziv.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Potvrdjeno</span></dt>
+        <dd>
+            <span>{{vm.poziv.potvrdjeno}}</span>
+        </dd>
+        <dt><span>Gost</span></dt>
+        <dd>
+            <a ui-sref="gost-detail({id:vm.poziv.gost.id})">{{vm.poziv.gost.id}}</a>
+        </dd>
+        <dt><span>Rezervacija</span></dt>
+        <dd>
+            <a ui-sref="rezervacija-detail({id:vm.poziv.rezervacija.id})">{{vm.poziv.rezervacija.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="poziv-detail.edit({id:vm.poziv.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span>Prijatelji</span> {{vm.prijatelji.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Id Gosta 1</span></dt>
+        <dd>
+            <span>{{vm.prijatelji.idGosta1}}</span>
+        </dd>
+        <dt><span>Id Gosta 2</span></dt>
+        <dd>
+            <span>{{vm.prijatelji.idGosta2}}</span>
+        </dd>
+        <dt><span>Postalan Zahtev</span></dt>
+        <dd>
+            <span>{{vm.prijatelji.postalanZahtev | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Prihvacen Zahtev</span></dt>
+        <dd>
+            <span>{{vm.prijatelji.prihvacenZahtev | date:'mediumDate'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="prijatelji-detail.edit({id:vm.prijatelji.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

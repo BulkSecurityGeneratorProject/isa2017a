@@ -1,0 +1,27 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "idGosta1",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "idGosta2",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "postalanZahtev",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "prihvacenZahtev",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20170910211010",
+    "entityTableName": "prijatelji",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

@@ -1,0 +1,66 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "userID",
+            "otherEntityName": "user",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "gost"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "rezervacije",
+            "otherEntityName": "rezervacija",
+            "otherEntityRelationshipName": "rezervisao"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "poslaoZahtev",
+            "otherEntityName": "zahtevZaPrijateljstvo",
+            "otherEntityRelationshipName": "gost"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "poslaoPoziv",
+            "otherEntityName": "poziv",
+            "otherEntityRelationshipName": "gost"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "prijatelji",
+            "otherEntityName": "gost",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "login",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "password",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ime",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "prezime",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170910211008",
+    "entityTableName": "gost",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

@@ -1,0 +1,62 @@
+<div>
+    <h2>Prijateljis</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="prijatelji.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Prijatelji
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Id Gosta 1</span></th>
+                    <th><span>Id Gosta 2</span></th>
+                    <th><span>Postalan Zahtev</span></th>
+                    <th><span>Prihvacen Zahtev</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="prijatelji in vm.prijateljis track by prijatelji.id">
+                    <td><a ui-sref="prijatelji-detail({id:prijatelji.id})">{{prijatelji.id}}</a></td>
+                    <td>{{prijatelji.idGosta1}}</td>
+                    <td>{{prijatelji.idGosta2}}</td>
+                        <td>{{prijatelji.postalanZahtev | date:'mediumDate'}}</td>
+                        <td>{{prijatelji.prihvacenZahtev | date:'mediumDate'}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="prijatelji-detail({id:prijatelji.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="prijatelji.edit({id:prijatelji.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="prijatelji.delete({id:prijatelji.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
