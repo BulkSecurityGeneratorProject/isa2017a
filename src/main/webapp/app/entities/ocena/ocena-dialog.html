@@ -20,7 +20,7 @@
                     />
         </div>
 
-        <div class="form-group">
+        <div has-authority="ROLE_ADMIN" class="form-group">
             <label for="field_gost">Gost</label>
             <select class="form-control" id="field_gost" name="gost" ng-model="vm.ocena.gost" ng-options="gost as gost.id for gost in vm.gosts | orderBy:'id' track by gost.id">
                 <option value=""></option>

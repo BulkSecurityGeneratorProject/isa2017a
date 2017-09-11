@@ -13,13 +13,13 @@
             <input type="text" class="form-control" id="id" name="id"
                     ng-model="vm.zahtevZaPrijateljstvo.id" readonly />
         </div>
-        <div class="form-group">
+        <div has-authority="ROLE_ADMIN" class="form-group">
             <label class="control-label" for="field_idPodnosiocaZahteva">Id Podnosioca Zahteva</label>
             <input type="number" class="form-control" name="idPodnosiocaZahteva" id="field_idPodnosiocaZahteva"
                     ng-model="vm.zahtevZaPrijateljstvo.idPodnosiocaZahteva"
                     />
         </div>
-        <div class="form-group">
+        <div has-authority="ROLE_ADMIN"  class="form-group">
             <label class="control-label" for="field_postalanZahtev">Postalan Zahtev</label>
                 <div class="input-group">
                     <input id="field_postalanZahtev" type="text" class="form-control" name="postalanZahtev" uib-datepicker-popup="{{dateformat}}" ng-model="vm.zahtevZaPrijateljstvo.postalanZahtev" is-open="vm.datePickerOpenStatus.postalanZahtev"
@@ -29,7 +29,7 @@
                     </span>
                 </div>
         </div>
-        <div class="form-group">
+        <div has-authority="ROLE_ADMIN"  class="form-group">
             <label class="control-label" for="field_prihvacenZahtev">Prihvacen Zahtev</label>
                 <div class="input-group">
                     <input id="field_prihvacenZahtev" type="text" class="form-control" name="prihvacenZahtev" uib-datepicker-popup="{{dateformat}}" ng-model="vm.zahtevZaPrijateljstvo.prihvacenZahtev" is-open="vm.datePickerOpenStatus.prihvacenZahtev"

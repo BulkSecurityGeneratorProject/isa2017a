@@ -1,10 +1,10 @@
 <div>
-    <h2>Restorans</h2>
+    <h2>Restorani</h2>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-4 no-padding-left">
-                <button class="btn btn-primary" ui-sref="restoran.new" >
+                <button (has-authority="ROLE_ADMIN"|| has-authority="ROLE_MENADZER_SISTEMA") class="btn btn-primary" ui-sref="restoran.new" >
                     <span class="glyphicon glyphicon-plus"></span>
                     <span >
                         Create new Restoran

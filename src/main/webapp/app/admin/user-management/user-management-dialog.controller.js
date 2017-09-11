@@ -10,7 +10,7 @@
     function UserManagementDialogController ($stateParams, $uibModalInstance, entity, User) {
         var vm = this;
 
-        vm.authorities = vm.authorities = ['ROLE_USER', 'ROLE_ADMIN','ROLE_GOST','ROLE_MENADZER_SISTEMA','ROLE_MENADZER_RESTORANA','ROLE_ZAPOSLENI' ];
+        vm.authorities = vm.authorities = ['ROLE_USER', 'ROLE_ADMIN','ROLE_GOST','ROLE_MENADZER_SISTEMA','ROLE_MENADZER_RESTORANA','ROLE_ZAPOSLENI', 'ROLE_MENADZER_PONUDJAC' ];
         vm.clear = clear;
         vm.languages = null;
         vm.save = save;

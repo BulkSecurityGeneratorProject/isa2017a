@@ -13,7 +13,7 @@
             parent: 'entity',
             url: '/restoran',
             data: {
-                authorities: ['ROLE_MENADZER_SISTEMA', 'ROLE_MENADZER_RESTORANA', 'ROLE_MENADZER_SISTEMA'],
+                authorities: ['ROLE_GOST', 'ROLE_MENADZER_SISTEMA', 'ROLE_MENADZER_RESTORANA', 'ROLE_MENADZER_SISTEMA'],
                 pageTitle: 'Restorans'
             },
             views: {
@@ -30,7 +30,7 @@
             parent: 'restoran',
             url: '/restoran/{id}',
             data: {
-                authorities: ['ROLE_MENADZER_SISTEMA', 'ROLE_MENADZER_RESTORANA', 'ROLE_MENADZER_SISTEMA'],
+                authorities: ['ROLE_GOST','ROLE_MENADZER_SISTEMA', 'ROLE_MENADZER_RESTORANA', 'ROLE_MENADZER_SISTEMA'],
                 pageTitle: 'Restoran'
             },
             views: {
@@ -83,7 +83,7 @@
             parent: 'restoran',
             url: '/new',
             data: {
-                authorities: ['ROLE_MENADZER_SISTEMA', 'ROLE_MENADZER_RESTORANA', 'ROLE_MENADZER_SISTEMA']
+                authorities: ['ROLE_MENADZER_SISTEMA', 'ROLE_MENADZER_SISTEMA']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({

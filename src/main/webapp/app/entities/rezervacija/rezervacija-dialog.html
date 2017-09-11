@@ -33,7 +33,7 @@
                     </span>
                 </div>
         </div>
-        <div class="form-group">
+        <div (has-authority="ROLE_ADMIN"|| has-authority="ROLE_ZAPOSLENI") class="form-group">
             <label class="control-label" for="field_ocenjeno">Ocenjeno</label>
                 <input type="checkbox" name="ocenjeno" id="field_ocenjeno"
                           ng-model="vm.rezervacija.ocenjeno"/>
@@ -62,7 +62,7 @@
                 <option value=""></option>
             </select>
         </div>
-        <div class="form-group">
+        <div (has-authority="ROLE_ADMIN"|| has-authority="ROLE_ZAPOSLENI") class="form-group">
             <label for="field_rezervisao">Rezervisao</label>
             <select class="form-control" id="field_rezervisao" name="rezervisao" ng-model="vm.rezervacija.rezervisao" ng-options="gost as gost.id for gost in vm.gosts track by gost.id">
                 <option value=""></option>

@@ -1,10 +1,10 @@
 <div>
-    <h2>Ocenas</h2>
+    <h2>Tvoje Ocene</h2>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-4 no-padding-left">
-                <button class="btn btn-primary" ui-sref="ocena.new" >
+                <button (has-authority="ROLE_ADMIN"|| has-authority="ROLE_GOST") class="btn btn-primary" ui-sref="ocena.new" >
                     <span class="glyphicon glyphicon-plus"></span>
                     <span >
                         Create new Ocena
@@ -18,9 +18,9 @@
         <table class="jh-table table table-striped">
             <thead>
                 <tr>
-                    <th><span>ID</span></th>
+                    <th has-authority="ROLE_ADMIN"><span>ID</span></th>
                     <th><span>Ocena</span></th>
-                    <th><span>Gost</span></th>
+                    <th has-authority="ROLE_ADMIN"><span>Gost</span></th>
                     <th><span>Restoran</span></th>
                     <th></th>
                 </tr>

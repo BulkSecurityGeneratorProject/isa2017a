@@ -17,6 +17,9 @@ public final class AuthoritiesConstants {
 
     public static final String MENADZER_RESTORANA = "ROLE_MENADZER_RESTORANA";
 
+    public static final String MENADZER_RESTORANA = "ROLE_MENADZER_PONUDJAC";
+
+
 
     private AuthoritiesConstants() {
     }

@@ -13,22 +13,22 @@
             <input type="text" class="form-control" id="id" name="id"
                     ng-model="vm.porudzbina.id" readonly />
         </div>
-        <div class="form-group">
+        <div (has-authority="ROLE_ADMIN"|| has-authority="ROLE_ZAPOSLENI") class="form-group">
             <label class="control-label" for="field_prihvacenoPice">Prihvaceno Pice</label>
                 <input type="checkbox" name="prihvacenoPice" id="field_prihvacenoPice"
                           ng-model="vm.porudzbina.prihvacenoPice"/>
         </div>
-        <div class="form-group">
+        <div (has-authority="ROLE_ADMIN"|| has-authority="ROLE_ZAPOSLENI") class="form-group">
             <label class="control-label" for="field_spremnoPice">Spremno Pice</label>
                 <input type="checkbox" name="spremnoPice" id="field_spremnoPice"
                           ng-model="vm.porudzbina.spremnoPice"/>
         </div>
-        <div class="form-group">
+        <div (has-authority="ROLE_ADMIN"|| has-authority="ROLE_ZAPOSLENI") class="form-group">
             <label class="control-label" for="field_prihvacenaHrana">Prihvacena Hrana</label>
                 <input type="checkbox" name="prihvacenaHrana" id="field_prihvacenaHrana"
                           ng-model="vm.porudzbina.prihvacenaHrana"/>
         </div>
-        <div class="form-group">
+        <div (has-authority="ROLE_ADMIN"|| has-authority="ROLE_ZAPOSLENI") class="form-group">
             <label class="control-label" for="field_spremnaHrana">Spremna Hrana</label>
                 <input type="checkbox" name="spremnaHrana" id="field_spremnaHrana"
                           ng-model="vm.porudzbina.spremnaHrana"/>

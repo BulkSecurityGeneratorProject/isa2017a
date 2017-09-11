@@ -10,7 +10,7 @@
     function UserManagementController(Principal, User, ParseLinks, AlertService, $state, pagingParams, paginationConstants) {
         var vm = this;
 
-        vm.authorities = ['ROLE_USER', 'ROLE_ADMIN','ROLE_GOST','ROLE_MENADZER_SISTEMA','ROLE_MENADZER_RESTORANA','ROLE_ZAPOSLENI' ];
+        vm.authorities = ['ROLE_USER', 'ROLE_ADMIN','ROLE_GOST','ROLE_MENADZER_SISTEMA','ROLE_MENADZER_RESTORANA','ROLE_ZAPOSLENI', 'ROLE_MENADZER_PONUDJAC' ];
         vm.currentAccount = null;
         vm.languages = null;
         vm.loadAll = loadAll;

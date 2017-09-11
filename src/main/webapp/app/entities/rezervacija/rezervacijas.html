@@ -1,7 +1,7 @@
 <div>
-    <h2>Rezervacijas</h2>
+    <h2>Rezervacij</h2>
     <jhi-alert></jhi-alert>
-    <div class="container-fluid">
+    <div (has-authority="ROLE_ADMIN"|| has-authority="ROLE_GOST")class="container-fluid">
         <div class="row">
             <div class="col-xs-4 no-padding-left">
                 <button class="btn btn-primary" ui-sref="rezervacija.new" >
@@ -26,7 +26,7 @@
                     <th><span>Stol</span></th>
                     <th><span>Porudzbina</span></th>
                     <th><span>Restoran</span></th>
-                    <th><span>Rezervisao</span></th>
+                    <th><span (has-authority="ROLE_ADMIN"|| has-authority="ROLE_ZAPOSLENI")>Rezervisao</span></th>
                     <th></th>
                 </tr>
             </thead>
