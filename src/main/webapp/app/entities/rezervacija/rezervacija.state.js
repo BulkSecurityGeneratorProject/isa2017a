@@ -13,7 +13,7 @@
             parent: 'entity',
             url: '/rezervacija',
             data: {
-                authorities: ['ROLE_GOST'],
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN'],
                 pageTitle: 'Rezervacijas'
             },
             views: {
@@ -30,7 +30,7 @@
             parent: 'rezervacija',
             url: '/rezervacija/{id}',
             data: {
-                authorities: ['ROLE_GOST'],
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN'],
                 pageTitle: 'Rezervacija'
             },
             views: {
@@ -58,7 +58,7 @@
             parent: 'rezervacija-detail',
             url: '/detail/edit',
             data: {
-                authorities: ['ROLE_GOST']
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -83,7 +83,7 @@
             parent: 'rezervacija',
             url: '/new',
             data: {
-                authorities: ['ROLE_GOST']
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -114,7 +114,7 @@
             parent: 'rezervacija',
             url: '/{id}/edit',
             data: {
-                authorities: ['ROLE_GOST']
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -139,7 +139,7 @@
             parent: 'rezervacija',
             url: '/{id}/delete',
             data: {
-                authorities: ['ROLE_GOST']
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({

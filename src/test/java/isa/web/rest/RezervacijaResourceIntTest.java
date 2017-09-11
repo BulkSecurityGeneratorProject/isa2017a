@@ -3,7 +3,10 @@ package isa.web.rest;
 import isa.IsaApp;
 
 import isa.domain.Rezervacija;
+import isa.repository.GostRepository;
 import isa.repository.RezervacijaRepository;
+import isa.service.UserDao;
+import isa.service.dao.GostDao;
 import isa.web.rest.errors.ExceptionTranslator;
 
 import org.junit.Before;
@@ -74,9 +77,9 @@ public class RezervacijaResourceIntTest {
     private Rezervacija rezervacija;
 
     @Before
-    public void setup() {
+    public void setup(RezervacijaRepository rezervacijaRepository, GostDao gostDao, GostRepository gostRepository) {
         MockitoAnnotations.initMocks(this);
-        final RezervacijaResource rezervacijaResource = new RezervacijaResource(rezervacijaRepository);
+        final RezervacijaResource rezervacijaResource = new RezervacijaResource( gostDao, rezervacijaRepository, gostRepository);
         this.restRezervacijaMockMvc = MockMvcBuilders.standaloneSetup(rezervacijaResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)

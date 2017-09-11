@@ -13,7 +13,7 @@
             parent: 'entity',
             url: '/ponudjac',
             data: {
-                authorities: ['ROLE_GOST', 'ROLE_ZAPOSLENI', 'ROLE_MENADZER_RESTORANA'],
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN', 'ROLE_ZAPOSLENI', 'ROLE_MENADZER_RESTORANA'],
                 pageTitle: 'Ponudjacs'
             },
             views: {
@@ -30,7 +30,7 @@
             parent: 'ponudjac',
             url: '/ponudjac/{id}',
             data: {
-                authorities: ['ROLE_GOST', 'ROLE_ZAPOSLENI', 'ROLE_MENADZER_RESTORANA'],
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN', 'ROLE_ZAPOSLENI', 'ROLE_MENADZER_RESTORANA'],
                 pageTitle: 'Ponudjac'
             },
             views: {
@@ -58,7 +58,7 @@
             parent: 'ponudjac-detail',
             url: '/detail/edit',
             data: {
-                authorities: ['ROLE_GOST', 'ROLE_ZAPOSLENI', 'ROLE_MENADZER_RESTORANA']
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN', 'ROLE_ZAPOSLENI', 'ROLE_MENADZER_RESTORANA']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -83,7 +83,7 @@
             parent: 'ponudjac',
             url: '/new',
             data: {
-                authorities: ['ROLE_GOST', 'ROLE_ZAPOSLENI', 'ROLE_MENADZER_RESTORANA']
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN', 'ROLE_ZAPOSLENI', 'ROLE_MENADZER_RESTORANA']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -115,7 +115,7 @@
             parent: 'ponudjac',
             url: '/{id}/edit',
             data: {
-                authorities: ['ROLE_GOST', 'ROLE_ZAPOSLENI', 'ROLE_MENADZER_RESTORANA']
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN', 'ROLE_ZAPOSLENI', 'ROLE_MENADZER_RESTORANA']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -140,7 +140,7 @@
             parent: 'ponudjac',
             url: '/{id}/delete',
             data: {
-                authorities: ['ROLE_GOST', 'ROLE_ZAPOSLENI', 'ROLE_MENADZER_RESTORANA']
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN', 'ROLE_ZAPOSLENI', 'ROLE_MENADZER_RESTORANA']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({

@@ -13,7 +13,7 @@
             parent: 'entity',
             url: '/raspored-smena-za-konobare',
             data: {
-                authorities: ['ROLE_GOST', 'ROLE_ZAPOSLENI', 'ROLE_MENADZER_RESTORANA'],
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN', 'ROLE_ZAPOSLENI', 'ROLE_MENADZER_RESTORANA'],
                 pageTitle: 'RasporedSmenaZaKonobares'
             },
             views: {
@@ -30,7 +30,7 @@
             parent: 'raspored-smena-za-konobare',
             url: '/raspored-smena-za-konobare/{id}',
             data: {
-                authorities: ['ROLE_GOST', 'ROLE_ZAPOSLENI', 'ROLE_MENADZER_RESTORANA'],
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN', 'ROLE_ZAPOSLENI', 'ROLE_MENADZER_RESTORANA'],
                 pageTitle: 'RasporedSmenaZaKonobare'
             },
             views: {
@@ -58,7 +58,7 @@
             parent: 'raspored-smena-za-konobare-detail',
             url: '/detail/edit',
             data: {
-                authorities: ['ROLE_GOST', 'ROLE_ZAPOSLENI', 'ROLE_MENADZER_RESTORANA']
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN', 'ROLE_ZAPOSLENI', 'ROLE_MENADZER_RESTORANA']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -83,7 +83,7 @@
             parent: 'raspored-smena-za-konobare',
             url: '/new',
             data: {
-                authorities: ['ROLE_GOST', 'ROLE_ZAPOSLENI', 'ROLE_MENADZER_RESTORANA']
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN', 'ROLE_ZAPOSLENI', 'ROLE_MENADZER_RESTORANA']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -113,7 +113,7 @@
             parent: 'raspored-smena-za-konobare',
             url: '/{id}/edit',
             data: {
-                authorities: ['ROLE_GOST', 'ROLE_ZAPOSLENI', 'ROLE_MENADZER_RESTORANA']
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN', 'ROLE_ZAPOSLENI', 'ROLE_MENADZER_RESTORANA']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -138,7 +138,7 @@
             parent: 'raspored-smena-za-konobare',
             url: '/{id}/delete',
             data: {
-                authorities: ['ROLE_GOST', 'ROLE_ZAPOSLENI', 'ROLE_MENADZER_RESTORANA']
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN', 'ROLE_ZAPOSLENI', 'ROLE_MENADZER_RESTORANA']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({

@@ -13,7 +13,7 @@
             parent: 'entity',
             url: '/prijatelji',
             data: {
-                authorities: ['ROLE_GOST'],
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN'],
                 pageTitle: 'Prijateljis'
             },
             views: {
@@ -30,7 +30,7 @@
             parent: 'prijatelji',
             url: '/prijatelji/{id}',
             data: {
-                authorities: ['ROLE_GOST'],
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN'],
                 pageTitle: 'Prijatelji'
             },
             views: {
@@ -58,7 +58,7 @@
             parent: 'prijatelji-detail',
             url: '/detail/edit',
             data: {
-                authorities: ['ROLE_GOST']
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -83,7 +83,7 @@
             parent: 'prijatelji',
             url: '/new',
             data: {
-                authorities: ['ROLE_GOST']
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -114,7 +114,7 @@
             parent: 'prijatelji',
             url: '/{id}/edit',
             data: {
-                authorities: ['ROLE_GOST']
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -139,7 +139,7 @@
             parent: 'prijatelji',
             url: '/{id}/delete',
             data: {
-                authorities: ['ROLE_GOST']
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({

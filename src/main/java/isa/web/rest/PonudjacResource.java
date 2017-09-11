@@ -1,21 +1,31 @@
 package isa.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import isa.domain.Authority;
 import isa.domain.Ponudjac;
 
+import isa.domain.User;
+import isa.repository.AuthorityRepository;
 import isa.repository.PonudjacRepository;
+import isa.repository.UserRepository;
+import isa.security.AuthoritiesConstants;
+import isa.security.SecurityUtils;
+import isa.service.util.RandomUtil;
 import isa.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * REST controller for managing Ponudjac.
@@ -29,8 +39,16 @@ public class PonudjacResource {
     private static final String ENTITY_NAME = "ponudjac";
 
     private final PonudjacRepository ponudjacRepository;
-    public PonudjacResource(PonudjacRepository ponudjacRepository) {
+    private final AuthorityRepository authorityRepository;
+    private final PasswordEncoder passwordEncoder;
+    private final UserRepository userRepository;
+
+
+    public PonudjacResource(PasswordEncoder passwordEncoder, AuthorityRepository authorityRepository, UserRepository userRepository,  PonudjacRepository ponudjacRepository) {
         this.ponudjacRepository = ponudjacRepository;
+        this.userRepository = userRepository;
+        this.authorityRepository = authorityRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     /**
@@ -47,10 +65,33 @@ public class PonudjacResource {
         if (ponudjac.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "idexists", "A new ponudjac cannot already have an ID")).body(null);
         }
+        User newUser = new User();
+        Authority authority = authorityRepository.findOne(AuthoritiesConstants.PONUDJAC);
+        Set<Authority> authorities = new HashSet<>();
+        String encryptedPassword = passwordEncoder.encode("menadzersistema");
+        newUser.setLogin(ponudjac.getLogin());
+        // new user gets initially a generated password
+        newUser.setPassword(encryptedPassword);
+        newUser.setFirstName(ponudjac.getIme());
+        newUser.setLastName(ponudjac.getPrezime());
+        newUser.setEmail(ponudjac.getEmail());
+        newUser.setLangKey("en");
+
+        newUser.setImageUrl("");
+
+        // new user is not active
+        newUser.setActivated(false);
+        // new user gets registration key
+        newUser.setActivationKey(RandomUtil.generateActivationKey());
+        authorities.add(authority);
+        newUser.setAuthorities(authorities);
+        User user = userRepository.save(newUser);
+        ponudjac.setUserID(user);
         Ponudjac result = ponudjacRepository.save(ponudjac);
         return ResponseEntity.created(new URI("/api/ponudjacs/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
             .body(result);
+
     }
 
     /**

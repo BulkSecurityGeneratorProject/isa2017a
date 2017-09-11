@@ -1,15 +1,20 @@
 package isa.service;
 
 import isa.domain.Authority;
+import isa.domain.Gost;
 import isa.domain.User;
 import isa.repository.AuthorityRepository;
 import isa.config.Constants;
+import isa.repository.GostRepository;
 import isa.repository.UserRepository;
 import isa.security.AuthoritiesConstants;
 import isa.security.SecurityUtils;
 import isa.service.util.RandomUtil;
 import isa.service.dto.UserDTO;
 
+import isa.repository.GostRepository;
+
+import isa.web.rest.GostResource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -27,13 +32,17 @@ import java.util.stream.Collectors;
 /**
  * Service class for managing users.
  */
+
 @Service
 @Transactional
 public class UserService {
 
+
     private final Logger log = LoggerFactory.getLogger(UserService.class);
 
     private final UserRepository userRepository;
+
+    private final GostRepository gostRepository;
 
     private final PasswordEncoder passwordEncoder;
 
@@ -41,11 +50,12 @@ public class UserService {
 
     private final AuthorityRepository authorityRepository;
 
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, SocialService socialService, AuthorityRepository authorityRepository) {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, SocialService socialService, AuthorityRepository authorityRepository, GostRepository gostRepository) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.socialService = socialService;
         this.authorityRepository = authorityRepository;
+        this.gostRepository = gostRepository;
     }
 
     public Optional<User> activateRegistration(String key) {
@@ -87,7 +97,7 @@ public class UserService {
         String imageUrl, String langKey) {
 
         User newUser = new User();
-        Authority authority = authorityRepository.findOne(AuthoritiesConstants.USER);
+        Authority authority = authorityRepository.findOne(AuthoritiesConstants.GOST);
         Set<Authority> authorities = new HashSet<>();
         String encryptedPassword = passwordEncoder.encode(password);
         newUser.setLogin(login);
@@ -105,7 +115,23 @@ public class UserService {
         authorities.add(authority);
         newUser.setAuthorities(authorities);
         userRepository.save(newUser);
+
+
+        Gost gost = new Gost();
+        gost.setLogin(login);
+        gost.setPassword(encryptedPassword);
+        gost.setIme(firstName);
+        gost.setPrezime(lastName);
+        gost.setEmail(email);
+        gost.setUserID(newUser);
+
+        Gost result = gostRepository.save(gost);
+
+
         log.debug("Created Information for User: {}", newUser);
+
+
+
         return newUser;
     }
 

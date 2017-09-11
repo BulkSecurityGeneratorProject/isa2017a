@@ -13,7 +13,7 @@
             parent: 'entity',
             url: '/ocena',
             data: {
-                authorities: ['ROLE_GOST'],
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN'],
                 pageTitle: 'Ocenas'
             },
             views: {
@@ -30,7 +30,7 @@
             parent: 'ocena',
             url: '/ocena/{id}',
             data: {
-                authorities: ['ROLE_GOST'],
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN'],
                 pageTitle: 'Ocena'
             },
             views: {
@@ -58,7 +58,7 @@
             parent: 'ocena-detail',
             url: '/detail/edit',
             data: {
-                authorities: ['ROLE_GOST']
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -83,7 +83,7 @@
             parent: 'ocena',
             url: '/new',
             data: {
-                authorities: ['ROLE_GOST']
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -111,7 +111,7 @@
             parent: 'ocena',
             url: '/{id}/edit',
             data: {
-                authorities: ['ROLE_GOST']
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -136,7 +136,7 @@
             parent: 'ocena',
             url: '/{id}/delete',
             data: {
-                authorities: ['ROLE_GOST']
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({

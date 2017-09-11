@@ -13,7 +13,7 @@
             parent: 'entity',
             url: '/jelovnik',
             data: {
-                authorities: ['ROLE_GOST', 'ROLE_MENADZER_RESTORANA', 'ROLE_ADMIN', 'ROLE_ZAPOSLENI'],
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN', 'ROLE_MENADZER_RESTORANA', 'ROLE_ADMIN', 'ROLE_ZAPOSLENI'],
                 pageTitle: 'Jelovniks'
             },
             views: {
@@ -30,7 +30,7 @@
             parent: 'jelovnik',
             url: '/jelovnik/{id}',
             data: {
-                authorities: ['ROLE_GOST', 'ROLE_MENADZER_RESTORANA', 'ROLE_ADMIN', 'ROLE_ZAPOSLENI'],
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN', 'ROLE_MENADZER_RESTORANA', 'ROLE_ADMIN', 'ROLE_ZAPOSLENI'],
                 pageTitle: 'Jelovnik'
             },
             views: {

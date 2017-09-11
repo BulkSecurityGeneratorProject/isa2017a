@@ -13,7 +13,7 @@
             parent: 'entity',
             url: '/poziv',
             data: {
-                authorities: ['ROLE_GOST'],
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN'],
                 pageTitle: 'Pozivs'
             },
             views: {
@@ -30,7 +30,7 @@
             parent: 'poziv',
             url: '/poziv/{id}',
             data: {
-                authorities: ['ROLE_GOST'],
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN'],
                 pageTitle: 'Poziv'
             },
             views: {
@@ -58,7 +58,7 @@
             parent: 'poziv-detail',
             url: '/detail/edit',
             data: {
-                authorities: ['ROLE_GOST']
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -83,7 +83,7 @@
             parent: 'poziv',
             url: '/new',
             data: {
-                authorities: ['ROLE_GOST']
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -111,7 +111,7 @@
             parent: 'poziv',
             url: '/{id}/edit',
             data: {
-                authorities: ['ROLE_GOST']
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -136,7 +136,7 @@
             parent: 'poziv',
             url: '/{id}/delete',
             data: {
-                authorities: ['ROLE_GOST']
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({

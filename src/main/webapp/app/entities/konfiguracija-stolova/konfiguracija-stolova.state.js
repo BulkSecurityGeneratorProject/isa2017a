@@ -13,7 +13,7 @@
             parent: 'entity',
             url: '/konfiguracija-stolova',
             data: {
-                authorities: ['ROLE_GOST', 'ROLE_ZAPOSLENI', 'ROLE_MENADZER_RESTORANA'],
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN', 'ROLE_ZAPOSLENI', 'ROLE_MENADZER_RESTORANA'],
                 pageTitle: 'KonfiguracijaStolova'
             },
             views: {
@@ -30,7 +30,7 @@
             parent: 'konfiguracija-stolova',
             url: '/konfiguracija-stolova/{id}',
             data: {
-                authorities: ['ROLE_GOST', 'ROLE_ZAPOSLENI', 'ROLE_MENADZER_RESTORANA'],
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN', 'ROLE_ZAPOSLENI', 'ROLE_MENADZER_RESTORANA'],
                 pageTitle: 'KonfiguracijaStolova'
             },
             views: {
@@ -58,7 +58,7 @@
             parent: 'konfiguracija-stolova-detail',
             url: '/detail/edit',
             data: {
-                authorities: ['ROLE_GOST', 'ROLE_ZAPOSLENI', 'ROLE_MENADZER_RESTORANA']
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN', 'ROLE_ZAPOSLENI', 'ROLE_MENADZER_RESTORANA']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -83,7 +83,7 @@
             parent: 'konfiguracija-stolova',
             url: '/new',
             data: {
-                authorities: ['ROLE_GOST', 'ROLE_ZAPOSLENI', 'ROLE_MENADZER_RESTORANA']
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN', 'ROLE_ZAPOSLENI', 'ROLE_MENADZER_RESTORANA']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -111,7 +111,7 @@
             parent: 'konfiguracija-stolova',
             url: '/{id}/edit',
             data: {
-                authorities: ['ROLE_GOST', 'ROLE_ZAPOSLENI', 'ROLE_MENADZER_RESTORANA']
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN', 'ROLE_ZAPOSLENI', 'ROLE_MENADZER_RESTORANA']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -136,7 +136,7 @@
             parent: 'konfiguracija-stolova',
             url: '/{id}/delete',
             data: {
-                authorities: ['ROLE_GOST', 'ROLE_ZAPOSLENI', 'ROLE_MENADZER_RESTORANA']
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN', 'ROLE_ZAPOSLENI', 'ROLE_MENADZER_RESTORANA']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({

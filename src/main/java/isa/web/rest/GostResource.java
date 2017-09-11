@@ -29,6 +29,7 @@ public class GostResource {
     private static final String ENTITY_NAME = "gost";
 
     private final GostRepository gostRepository;
+
     public GostResource(GostRepository gostRepository) {
         this.gostRepository = gostRepository;
     }

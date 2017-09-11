@@ -13,7 +13,7 @@
             parent: 'entity',
             url: '/karta-pica',
             data: {
-                authorities: ['ROLE_GOST', 'ROLE_MENADZER_RESTORANA', 'ROLE_ADMIN', 'ROLE_ZAPOSLENI'],
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN', 'ROLE_MENADZER_RESTORANA', 'ROLE_ADMIN', 'ROLE_ZAPOSLENI'],
                 pageTitle: 'KartaPicas'
             },
             views: {
@@ -30,7 +30,7 @@
             parent: 'karta-pica',
             url: '/karta-pica/{id}',
             data: {
-                authorities: ['ROLE_GOST', 'ROLE_MENADZER_RESTORANA', 'ROLE_ADMIN', 'ROLE_ZAPOSLENI'],
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN', 'ROLE_MENADZER_RESTORANA', 'ROLE_ADMIN', 'ROLE_ZAPOSLENI'],
                 pageTitle: 'KartaPica'
             },
             views: {

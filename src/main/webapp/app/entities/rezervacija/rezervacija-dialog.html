@@ -68,6 +68,14 @@
                 <option value=""></option>
             </select>
         </div>
+        <div ng-repeate="data in more"  class="form-group">
+        <label for="field_rezervisao">Prijatelj</label>
+        <select class="form-control" id="field_rezervisao" name="rezervisao" ng-model="vm.rezervacija.rezervisao" ng-options="gost as gost.id for gost in vm.gosts track by gost.id">
+            <option value=""></option>
+        </select>
+        </div>
+        <hr>
+        <div class = "btn btn-default" ng-click="addmore()" > Pozovi prijatelja</div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">

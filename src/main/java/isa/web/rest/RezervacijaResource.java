@@ -3,7 +3,11 @@ package isa.web.rest;
 import com.codahale.metrics.annotation.Timed;
 import isa.domain.Rezervacija;
 
+import isa.repository.GostRepository;
 import isa.repository.RezervacijaRepository;
+import isa.repository.UserRepository;
+import isa.service.UserDao;
+import isa.service.dao.GostDao;
 import isa.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
@@ -29,8 +33,13 @@ public class RezervacijaResource {
     private static final String ENTITY_NAME = "rezervacija";
 
     private final RezervacijaRepository rezervacijaRepository;
-    public RezervacijaResource(RezervacijaRepository rezervacijaRepository) {
+
+    private GostDao gostDao;
+    private GostRepository gostRepository;
+    public RezervacijaResource(GostDao gostDao, RezervacijaRepository rezervacijaRepository, GostRepository gostRepository) {
         this.rezervacijaRepository = rezervacijaRepository;
+        this.gostDao = gostDao ;
+        this.gostRepository = gostRepository;
     }
 
     /**
@@ -47,6 +56,7 @@ public class RezervacijaResource {
         if (rezervacija.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "idexists", "A new rezervacija cannot already have an ID")).body(null);
         }
+        //rezervacija.setRezervisao(gostRepository.findOne(gostDao.getUserIdByCurrentLogin()));
         Rezervacija result = rezervacijaRepository.save(rezervacija);
         return ResponseEntity.created(new URI("/api/rezervacijas/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))

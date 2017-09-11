@@ -13,7 +13,7 @@
             parent: 'entity',
             url: '/pice',
             data: {
-                authorities: ['ROLE_GOST', 'ROLE_MENADZER_RESTORANA', 'ROLE_ADMIN', 'ROLE_ZAPOSLENI'],
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN', 'ROLE_MENADZER_RESTORANA', 'ROLE_ADMIN', 'ROLE_ZAPOSLENI'],
                 pageTitle: 'Pices'
             },
             views: {
@@ -30,7 +30,7 @@
             parent: 'pice',
             url: '/pice/{id}',
             data: {
-                authorities: ['ROLE_GOST', 'ROLE_MENADZER_RESTORANA', 'ROLE_ADMIN', 'ROLE_ZAPOSLENI'],
+                authorities: ['ROLE_GOST', 'ROLE_ADMIN', 'ROLE_MENADZER_RESTORANA', 'ROLE_ADMIN', 'ROLE_ZAPOSLENI'],
                 pageTitle: 'Pice'
             },
             views: {

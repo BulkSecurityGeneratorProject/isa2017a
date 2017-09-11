@@ -1,21 +1,30 @@
 package isa.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import isa.domain.Authority;
 import isa.domain.MenadzerRestorana;
 
+import isa.domain.User;
+import isa.repository.AuthorityRepository;
 import isa.repository.MenadzerRestoranaRepository;
+import isa.repository.UserRepository;
+import isa.security.AuthoritiesConstants;
+import isa.service.util.RandomUtil;
 import isa.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * REST controller for managing MenadzerRestorana.
@@ -29,8 +38,17 @@ public class MenadzerRestoranaResource {
     private static final String ENTITY_NAME = "menadzerRestorana";
 
     private final MenadzerRestoranaRepository menadzerRestoranaRepository;
-    public MenadzerRestoranaResource(MenadzerRestoranaRepository menadzerRestoranaRepository) {
+
+    private final AuthorityRepository authorityRepository;
+    private final PasswordEncoder passwordEncoder;
+    private final UserRepository userRepository;
+
+
+    public MenadzerRestoranaResource(PasswordEncoder passwordEncoder, AuthorityRepository authorityRepository, UserRepository userRepository,MenadzerRestoranaRepository menadzerRestoranaRepository) {
         this.menadzerRestoranaRepository = menadzerRestoranaRepository;
+        this.userRepository = userRepository;
+        this.authorityRepository = authorityRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     /**
@@ -47,6 +65,30 @@ public class MenadzerRestoranaResource {
         if (menadzerRestorana.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "idexists", "A new menadzerRestorana cannot already have an ID")).body(null);
         }
+        User newUser = new User();
+        Authority authority = authorityRepository.findOne(AuthoritiesConstants.MENADZER_RESTORANA);
+        Set<Authority> authorities = new HashSet<>();
+        String encryptedPassword = passwordEncoder.encode("menadzersistema");
+        newUser.setLogin(menadzerRestorana.getLogin());
+        // new user gets initially a generated password
+        newUser.setPassword(encryptedPassword);
+        newUser.setFirstName(menadzerRestorana.getIme());
+        newUser.setLastName(menadzerRestorana.getPrezime());
+        newUser.setEmail(menadzerRestorana.getEmail());
+        newUser.setLangKey("en");
+
+        newUser.setImageUrl("");
+
+        // new user is not active
+        newUser.setActivated(false);
+        // new user gets registration key
+        newUser.setActivationKey(RandomUtil.generateActivationKey());
+        authorities.add(authority);
+        newUser.setAuthorities(authorities);
+        User user = userRepository.save(newUser);
+        menadzerRestorana.setUserID(user);
+
+
         MenadzerRestorana result = menadzerRestoranaRepository.save(menadzerRestorana);
         return ResponseEntity.created(new URI("/api/menadzer-restoranas/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))

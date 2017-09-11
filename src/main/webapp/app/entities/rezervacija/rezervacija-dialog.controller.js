@@ -15,7 +15,10 @@
         vm.datePickerOpenStatus = {};
         vm.openCalendar = openCalendar;
         vm.save = save;
+
+
         vm.stols = Stol.query();
+
         vm.porudzbinas = Porudzbina.query({filter: 'zarezervaciju-is-null'});
         $q.all([vm.rezervacija.$promise, vm.porudzbinas.$promise]).then(function() {
             if (!vm.rezervacija.porudzbina || !vm.rezervacija.porudzbina.id) {
